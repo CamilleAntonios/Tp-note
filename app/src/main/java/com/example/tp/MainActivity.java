@@ -37,6 +37,21 @@ public class MainActivity extends AppCompatActivity {
         //button first Animation
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.reapparition);
         button.startAnimation(animation);
+        button.setVisibility(View.VISIBLE);
+        //logo first Animation
+        Animation animationlogo = AnimationUtils.loadAnimation(this, R.anim.welcome);
+        logo.startAnimation(animationlogo);
+        logo.setVisibility(View.INVISIBLE);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animationbutton2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tv_off);
+                v.startAnimation(animationbutton2);
+                v.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
 
         /*new Handler().postDelayed(new Runnable() {
             @Override
