@@ -16,10 +16,11 @@ public class OnePieceCharacter implements Parcelable {
     private String pictureLowDefinition;
     private String pictureHighDefinition;
 
-    public OnePieceCharacter(int id, Map<String, String>name,Map<String, String>  description, String low, String high ){
+    public OnePieceCharacter(int id, Map<String, String>name,Map<String, String>  description,float val, String low, String high ){
         this.id = id;
         this.name = name;
         this.description = description;
+        this.value = val;
         this.pictureLowDefinition = low;
         this.pictureHighDefinition = high;
     }
@@ -57,5 +58,26 @@ public class OnePieceCharacter implements Parcelable {
         dest.writeFloat(value);
         dest.writeString(pictureLowDefinition);
         dest.writeString(pictureHighDefinition);
+    }
+
+    public float getValue() {
+        return value;
+    }
+
+    public void setName(Map<String, String> map){
+        name = map;
+        pictureLowDefinition = "http://edu.info06.net/onepiece/pictures_ld/"+name.get("english")+".png";
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name.get("english");
     }
 }
