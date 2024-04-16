@@ -1,6 +1,8 @@
 package com.example.tp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ListAdapter extends BaseAdapter {
+public class ListAdapter extends BaseAdapter implements Clickable {
     List<OnePieceCharacter> collection;
     LayoutInflater inflater;
     public ListAdapter(List<OnePieceCharacter> liste, Context context){
@@ -45,5 +47,18 @@ public class ListAdapter extends BaseAdapter {
         ratingValue.setText(ratingBar.getRating()+"");
 
         return convertView;
+    }
+    @Override
+    public void onClicItem(int itemIndex) {
+        Intent intent = new Intent(OnePieceApp.getContext(),CharacterActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("perso", collection.get(itemIndex));
+        intent.putExtras(bundle);
+
+    }
+
+    @Override
+    public void onRatingBarChange(int itemIndex, float value) {
+        collection.get(0).setValue(value);
     }
 }
