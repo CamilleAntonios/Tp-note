@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class ListAdapter extends BaseAdapter implements Clickable {
@@ -45,7 +47,8 @@ public class ListAdapter extends BaseAdapter implements Clickable {
         name.setText(collection.get(position).getName());
         ratingBar.setRating(collection.get(position).getValue());
         ratingValue.setText(ratingBar.getRating()+"");
-
+        //img.setImageResource(collection.get(position).getId());
+        //Picasso.get().load(collection.get(position).getPictureLowDefinition()).into(img);
         return convertView;
     }
     @Override

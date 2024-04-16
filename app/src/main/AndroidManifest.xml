@@ -23,9 +23,6 @@
             android:name=".OnePieceApp"
             android:exported="false" />
         <activity
-            android:name=".DisplayActivityBad"
-            android:exported="false" />
-        <activity
             android:name=".CharacterActivity"
             android:exported="false" />
         <activity
