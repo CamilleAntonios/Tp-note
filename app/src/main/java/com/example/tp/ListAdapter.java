@@ -60,5 +60,6 @@ public class ListAdapter extends BaseAdapter implements Clickable {
     @Override
     public void onRatingBarChange(int itemIndex, float value) {
         collection.get(0).setValue(value);
+        this.notifyDataSetChanged();
     }
 }

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 
@@ -31,6 +32,7 @@ public class FilterFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_filter, container, false);
         // Inflate the layout for this fragment
         TextView textView = view.findViewById(R.id.seekValue);
+        SeekBar seekBar = view.findViewById(R.id.seekValue);
 
         return view;
     }
