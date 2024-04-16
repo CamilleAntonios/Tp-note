@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -29,8 +31,29 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         ImageView logo = findViewById(R.id.logo);
+        Button button = findViewById(R.id.button);
+        button.setVisibility(View.INVISIBLE);
         logo.setVisibility(View.VISIBLE);
-        new Handler().postDelayed(new Runnable() {
+        //button first Animation
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.reapparition);
+        button.startAnimation(animation);
+        button.setVisibility(View.VISIBLE);
+        //logo first Animation
+        Animation animationlogo = AnimationUtils.loadAnimation(this, R.anim.welcome);
+        logo.startAnimation(animationlogo);
+        logo.setVisibility(View.INVISIBLE);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animationbutton2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tv_off);
+                v.startAnimation(animationbutton2);
+                v.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
+
+        /*new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 ObjectAnimator scaleY = ObjectAnimator.ofFloat(logo, View.SCALE_Y, 1f, 0f);
@@ -48,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 500);
 
-        Button button = findViewById(R.id.button);
+
         button.setVisibility(View.INVISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -82,6 +105,6 @@ public class MainActivity extends AppCompatActivity {
                 }, 0);
                 startActivity(new Intent(getApplicationContext(), DisplayActivity.class));
             }
-        });
+        });*/
     }
 }
