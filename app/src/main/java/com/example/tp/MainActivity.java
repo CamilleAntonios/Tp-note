@@ -43,10 +43,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animationbutton2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tv_off);
                 v.startAnimation(animationbutton2);
-                v.setVisibility(View.INVISIBLE);
-                Intent intent = new Intent(getApplicationContext(), DisplayActivity.class);
-                startActivity(intent);
+                animationbutton2.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
 
+                    }
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        v.setVisibility(View.INVISIBLE);
+                        Intent intent = new Intent(getApplicationContext(), DisplayActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
             }
         });
 
