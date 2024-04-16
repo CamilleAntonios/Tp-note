@@ -11,14 +11,12 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
-public class ListAdapter extends BaseAdapter implements Clickable {
+public class CharacterAdapter extends BaseAdapter implements Clickable {
     List<OnePieceCharacter> collection;
     LayoutInflater inflater;
-    public ListAdapter(List<OnePieceCharacter> liste, Context context){
+    public CharacterAdapter(List<OnePieceCharacter> liste, Context context){
         collection = liste;
         inflater = LayoutInflater.from(context);
     }
@@ -39,7 +37,7 @@ public class ListAdapter extends BaseAdapter implements Clickable {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.list_item, null);
+        convertView = inflater.inflate(R.layout.character_layout, null);
         ImageView img = convertView.findViewById(R.id.CharImage);
         TextView name = convertView.findViewById(R.id.CharName);
         RatingBar ratingBar = convertView.findViewById(R.id.ratingBar);
