@@ -3,6 +3,7 @@ package com.example.tp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         scaleX.start();
                     }
                 }, 0);
+                startActivity(new Intent(getApplicationContext(), DisplayActivity.class));
             }
         });*/
     }
