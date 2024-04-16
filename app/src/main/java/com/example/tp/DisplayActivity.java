@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayActivity extends AppCompatActivity implements  PostExecuteActivity{
+public class DisplayActivity extends AppCompatActivity implements  PostExecuteActivity<OnePieceCharacter>{
     private final String TAG = "cam "+getClass().getSimpleName();
     List<OnePieceCharacter> completeList = new ArrayList<>();
     List<OnePieceCharacter> displayedList = new ArrayList<>();
@@ -31,8 +31,8 @@ public class DisplayActivity extends AppCompatActivity implements  PostExecuteAc
 
 
     @Override
-    public void onPostExecute(List itemList) {
-        OnePieceCharacter op = (OnePieceCharacter) itemList.get(0);
+    public void onPostExecute(List<OnePieceCharacter> itemList) {
+        OnePieceCharacter op = itemList.get(0);
         Log.d(TAG,"First pokemon = " + op.getName());
         completeList.addAll(itemList);
     }
