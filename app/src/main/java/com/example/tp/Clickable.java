@@ -1,5 +1,4 @@
-package edu.frallo.onepiece;
-
+package com.example.tp;
 
 /**
  * Interface pour écouter les évènements sur le nom du diplome

@@ -1,4 +1,4 @@
-package edu.frallo.onepiece;
+package com.example.tp;
 
 import java.util.List;
 

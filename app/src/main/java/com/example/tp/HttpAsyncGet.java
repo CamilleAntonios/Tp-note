@@ -1,4 +1,4 @@
-package edu.frallo.onepiece;
+package com.example.tp;
 
 import android.app.ProgressDialog;
 import android.util.Log;
