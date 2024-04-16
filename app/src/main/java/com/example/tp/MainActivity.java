@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 Animation animationbutton2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.tv_off);
                 v.startAnimation(animationbutton2);
                 v.setVisibility(View.INVISIBLE);
+                Intent intent = new Intent(getApplicationContext(), DisplayActivity.class);
+                startActivity(intent);
+
             }
         });
 
