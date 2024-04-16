@@ -3,6 +3,7 @@ package com.example.tp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +22,13 @@ public class DisplayActivity extends AppCompatActivity implements Clickable, Pos
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_display);
-        HttpAsyncGet async = new HttpAsyncGet("http://edu.info06.net/onepiece/characters.json", OnePieceCharacter.class, this, new ProgressDialog(getApplicationContext()));
-    }
+        ListView listView = findViewById(R.id.listView);
+        ListAdapter adapter = new ListAdapter(displayedList, getApplicationContext());
+        listView.setAdapter(adapter);
 
+        HttpAsyncGet async = new HttpAsyncGet("http://edu.info06.net/onepiece/characters.json", OnePieceCharacter.class, this, new ProgressDialog(getApplicationContext()));
+
+    }
     @Override
     public void onClicItem(int itemIndex) {
         Intent intent = new Intent(getApplicationContext(),CharacterActivity.class);
